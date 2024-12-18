@@ -1,7 +1,12 @@
 import React from 'react';
 import { Github, Twitter, Linkedin } from 'lucide-react';
 import { Container } from './layout/Container';
-import { COMPANY_NAME, COMPANY_DESCRIPTION, COPYRIGHT_NOTICE } from '../constants/company';
+import { 
+  COMPANY_NAME, 
+  COMPANY_DESCRIPTION, 
+  COPYRIGHT_NOTICE,
+  SOCIAL_LINKS 
+} from '../constants/company';
 
 export default function Footer() {
   return (
@@ -12,13 +17,31 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-white mb-4">{COMPANY_NAME}</h3>
             <p className="text-gray-400 mb-4">{COMPANY_DESCRIPTION}</p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">
+              <a 
+                href={SOCIAL_LINKS.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+                aria-label="Follow us on X (formerly Twitter)"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-white">
+              <a 
+                href={SOCIAL_LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+                aria-label="Visit our GitHub"
+              >
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-white">
+              <a 
+                href={SOCIAL_LINKS.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+                aria-label="Connect with us on LinkedIn"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>

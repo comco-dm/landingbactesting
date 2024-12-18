@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import { MembershipForm } from './MembershipForm';
 
 const plans = [
   {
@@ -47,6 +48,8 @@ const plans = [
 ];
 
 export default function Pricing() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <section id="pricing" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,19 +92,21 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <button
+                  onClick={() => setIsFormOpen(true)}
                   className={`mt-8 w-full py-3 px-4 rounded-lg font-medium ${
                     plan.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   } transition-colors`}
                 >
-                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Start Free Trial'}
+                  Apply for Backtester Membership
                 </button>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <MembershipForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </section>
   );
 }
